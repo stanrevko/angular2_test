@@ -1,28 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './../product';
-import { CartService  } from './CartService';
+import { Product } from '../share/product';
+import { CartService  } from '../share/CartService';
+
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
-  providers: [CartService],
+
 })
-export class CartComponent implements OnInit {
-  count: number;  
-  items: any;
+export class CartComponent implements OnInit {  
+  items: Product[];
   
-  constructor(private cart: CartService){    
-    this.items = cart.getItems();
+  constructor(private cartService: CartService){       
   }
 
-  ngOnInit() {     
-    this.count =0;    
-    // this.items = this.cart.items; 
+  ngOnInit() {           
+    this.items = this.cartService.getItems();    
   }
 
   getItems(){
-    return this.cart.getItems();
+    return this.cartService.getItems();
+  }
+
+  onRemove(item: Product){
+    this.cartService.removeItem(item);
   }
 
 

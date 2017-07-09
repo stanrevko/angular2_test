@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ProductService  } from './ProductService';
-import { CartService  } from './cart/CartService';
-import { Product  } from './product';
+import { ProductService  } from './share/ProductService';
+import { CartService  } from './share/CartService';
+import { Product  } from './share/product';
 
 enum Category {
   phones     = 1,
@@ -17,8 +17,6 @@ enum Category {
   providers: [ProductService, CartService],
 })
 export class AppComponent {
-
-
   title = 'My shop';
   name : string;
   description: string;
