@@ -1,0 +1,4 @@
+<div *ngIf="!items" > No items </div>
+<ul>
+  <li *ngFor="let item of items">{{item.id}} - {{item.name}} <button (click)="onRemove(item)">X</button></li>
+</ul> 
