@@ -3,12 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
-import { CartService  } from './share/CartService';
+import { CartService  } from './share/cart.service';
+import { FiltersComponent } from './filters/filters.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent
+    CartComponent,
+    FiltersComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule

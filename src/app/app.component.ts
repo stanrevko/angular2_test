@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
-import { ProductService  } from './share/ProductService';
-import { CartService  } from './share/CartService';
+import { ProductService  } from './share/product.service';
+import { CartService  } from './share/cart.service';
 import { Product  } from './share/product';
-
-enum Category {
-  phones     = 1,
-  computers  = 2,
-  horses     = 3,
-  vegetables = 4,
-}
 
 @Component({
   selector: 'app-root',
@@ -18,10 +11,10 @@ enum Category {
 })
 export class AppComponent {
   title = 'My shop';
+  author = "Staislav Revko";
   name : string;
   description: string;
   price: number;
-  category: Category;
   isAvailable: boolean;
 
   products : Product[] = [];
@@ -33,10 +26,8 @@ export class AppComponent {
  
   }
 
-  constructor(private productService: ProductService, private cart: CartService){
+  constructor(private cart: CartService){
   }
 
-  ngOnInit(){
-        this.products = this.productService.getData();        
-  }
+  
 }
