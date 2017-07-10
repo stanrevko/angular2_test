@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../share/product';
+import { Product } from '../share/product.class';
 import { CartService  } from '../share/cart.service';
 
 
@@ -25,6 +25,10 @@ export class CartComponent implements OnInit {
 
   onRemove(item: Product){
     this.cartService.removeItem(item);
+  }
+
+  getCount(){
+    return this.items.length;
   }
 
 

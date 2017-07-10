@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService  } from './share/product.service';
 import { CartService  } from './share/cart.service';
-import { Product  } from './share/product';
+import { Product  } from './share/product.class';
 
 @Component({
   selector: 'app-root',
@@ -21,13 +21,13 @@ export class AppComponent {
 
   ingredients = ["potato", "salad", "music", "salt"] ;
 
-  onBuy = function(product: Product){
-      this.cart.addItem(product);
- 
+  constructor(private cartService: CartService){
   }
 
-  constructor(private cart: CartService){
+  addToCart = function(product: Product){
+     this.cartService.addItem(product);
   }
+  
 
   
 }
