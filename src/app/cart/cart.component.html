@@ -1,5 +1,5 @@
 <h3 align=center>Shopping Cart</h3>
 <div *ngIf="getCount()<1" > <b>No items</b> </div>
 <ul>
-  <li *ngFor="let item of items">{{item.id}} - {{item.name}} <button (click)="onRemove(item)">X</button></li>
+  <app-cart-item *ngFor="let item of items" [item]="item" (remove)="removeItem($event)"></app-cart-item>
 </ul> 
